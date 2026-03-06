@@ -3,645 +3,623 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenda de Umbanda Jurema & Tupinambá - Santos/SP</title>
+    <title>Tenda Espírita de Umbanda Jurema e Tupinambá - Santos/SP</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #4a1d6d;
-            --secondary: #2a1b3c;
-            --gold: #ffd700;
-            --light: #f5f0fa;
-            --text: #333;
+            font-family: 'Georgia', 'Times New Roman', serif;
         }
 
         body {
-            background: var(--light);
+            background-color: #fcf9f5;
+            color: #2c1810;
         }
 
-        /* Header */
+        /* Cabeçalho elegante */
         header {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            color: white;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 1.2;
-        }
-
-        .logo-main {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--gold);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .logo-sub {
-            font-size: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .logo-year {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .login-btn {
-            background: var(--gold);
-            color: var(--secondary);
-            border: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-
-        .login-btn:hover {
-            background: #ffaa00;
-            transform: scale(1.05);
-        }
-
-        /* Main content */
-        main {
-            margin-top: 100px;
-            padding: 2rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(42, 27, 60, 0.85), rgba(74, 29, 109, 0.85)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,100 100,0 100,100" fill="rgba(255,215,0,0.1)"/></svg>');
-            background-size: cover;
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
+            background-color: #2c1810;
+            color: #d4af37;
+            padding: 2rem 2rem;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
+            border-bottom: 3px solid #d4af37;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M20,20 Q40,10 60,20 Q80,30 70,50 Q60,70 40,70 Q20,70 30,40 Q25,25 20,20" fill="%23ffd700"/></svg>');
-            background-size: 200px;
-            pointer-events: none;
+        .logo-principal {
+            font-size: 3rem;
+            font-weight: normal;
+            letter-spacing: 4px;
+            margin-bottom: 0.5rem;
+            font-family: 'Georgia', serif;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            position: relative;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
+        .logo-secundario {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #e6d5a8;
             font-style: italic;
         }
 
-        .hero-stats {
+        .ano-fundacao {
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            color: #d4af37;
+        }
+
+        nav {
+            background-color: #3d2a1f;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #d4af37;
+        }
+
+        nav a {
+            color: #e6d5a8;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Seção Raízes Fortes */
+        .raizes-section {
+            background: linear-gradient(rgba(44, 24, 16, 0.9), rgba(44, 24, 16, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23d4af37" stroke-width="0.5" opacity="0.2"/></svg>');
+            color: #fcf9f5;
+            padding: 4rem 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .raizes-titulo {
+            font-size: 3.5rem;
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .raizes-subtitulo {
+            font-size: 1.3rem;
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 3rem;
+            color: #e6d5a8;
+        }
+
+        .stats-container {
             display: flex;
             justify-content: center;
             gap: 4rem;
-            margin-top: 3rem;
+            margin: 3rem 0;
             flex-wrap: wrap;
         }
 
-        .stat-item {
+        .stat-box {
             text-align: center;
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: 4rem;
+            color: #d4af37;
             font-weight: bold;
-            color: var(--gold);
         }
 
-        .stat-label {
-            font-size: 1rem;
+        .stat-text {
             max-width: 200px;
+            font-size: 1rem;
+            line-height: 1.5;
         }
 
-        .hero-quote {
-            margin-top: 3rem;
-            font-size: 1.5rem;
-            color: var(--gold);
+        .ponto-cantado {
+            text-align: center;
+            font-size: 1.8rem;
             font-style: italic;
+            margin-top: 3rem;
+            color: #d4af37;
+            border-top: 1px solid #d4af37;
+            padding-top: 2rem;
         }
 
-        /* Guias Section */
+        /* Seção Guias */
         .guias-section {
-            margin-bottom: 4rem;
+            margin: 4rem 0;
         }
 
-        .section-title {
-            color: var(--primary);
+        .section-titulo {
             font-size: 2.5rem;
+            color: #2c1810;
             text-align: center;
             margin-bottom: 3rem;
             position: relative;
         }
 
-        .section-title::after {
+        .section-titulo::after {
             content: "";
             display: block;
             width: 100px;
-            height: 4px;
-            background: var(--gold);
+            height: 2px;
+            background: #d4af37;
             margin: 1rem auto;
         }
 
         .guias-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
         .guia-card {
             background: white;
-            border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            border-top: 5px solid var(--gold);
+            border: 1px solid #e6d5a8;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .guia-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .guia-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .guia-card h3 {
-            color: var(--primary);
+        .guia-nome {
             font-size: 2rem;
+            color: #2c1810;
             margin-bottom: 0.5rem;
         }
 
-        .guia-card h4 {
-            color: var(--gold);
-            margin-bottom: 1rem;
+        .guia-titulo {
+            font-size: 1.1rem;
+            color: #d4af37;
             font-style: italic;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e6d5a8;
+            padding-bottom: 0.5rem;
         }
 
         .guia-historia {
-            color: #555;
-            line-height: 1.6;
+            line-height: 1.8;
+            color: #4a3b32;
         }
 
         .guia-historia p {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .guia-historia strong {
+            color: #2c1810;
+        }
+
+        /* Lenda da Jurema */
+        .lenda-section {
+            background: #f5ede3;
+            padding: 3rem;
+            margin: 4rem 0;
+            border-left: 5px solid #d4af37;
+        }
+
+        .lenda-titulo {
+            font-size: 2rem;
+            color: #2c1810;
+            margin-bottom: 2rem;
+        }
+
+        .lenda-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .lenda-item {
+            text-align: center;
+        }
+
+        .lenda-item strong {
+            display: block;
+            color: #d4af37;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Ciência da Cura */
+        .cura-section {
+            background: #2c1810;
+            color: #fcf9f5;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .cura-titulo {
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .reinos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .reino-item {
+            background: #3d2a1f;
+            color: #e6d5a8;
+            padding: 0.8rem 2rem;
+            border: 1px solid #d4af37;
+            font-size: 1.2rem;
+        }
+
+        /* Bezerra de Menezes */
+        .bezerra-section {
+            background: white;
+            padding: 3rem;
+            margin: 4rem 0;
+            border: 2px solid #d4af37;
+        }
+
+        .bezerra-titulo {
+            font-size: 2.5rem;
+            color: #2c1810;
+            margin-bottom: 1rem;
+        }
+
+        .bezerra-subtitulo {
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .bezerra-citacao {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #2c1810;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-left: 5px solid #d4af37;
+            background: #fcf9f5;
+        }
+
+        /* Espaço Físico */
+        .espaco-section {
+            background: #f5ede3;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .espaco-titulo {
+            font-size: 2.2rem;
+            color: #2c1810;
+            margin-bottom: 2rem;
+        }
+
+        .espaco-texto {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+
+        /* Projeto Reforma */
+        .reforma-section {
+            background: #2c1810;
+            color: #fcf9f5;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .reforma-titulo {
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .reforma-lista {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .reforma-lista li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #3d2a1f;
+        }
+
+        .reforma-lista li::before {
+            content: "• ";
+            color: #d4af37;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Campanha */
+        .campanha-section {
+            background: white;
+            padding: 3rem;
+            margin: 4rem 0;
+            border: 2px solid #d4af37;
+        }
+
+        .campanha-titulo {
+            font-size: 2rem;
+            color: #2c1810;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .vakinha-id {
+            font-size: 1.5rem;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .progresso-container {
+            background: #f5ede3;
+            border-radius: 0;
+            height: 40px;
+            margin: 2rem 0;
+            border: 1px solid #2c1810;
+        }
+
+        .progresso-bar {
+            background: #d4af37;
+            height: 100%;
+            width: 5%;
+        }
+
+        .campanha-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat-campanha {
+            text-align: center;
+        }
+
+        .stat-campanha .valor {
+            font-size: 2rem;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* Como ajudar */
+        .ajuda-section {
+            background: #f5ede3;
+            padding: 3rem;
+            margin: 4rem 0;
+        }
+
+        .ajuda-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .ajuda-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+        }
+
+        .ajuda-numero {
+            font-size: 2.5rem;
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Contato */
+        .contato-section {
+            background: white;
+            padding: 3rem;
+            margin: 4rem 0;
+            border: 2px solid #d4af37;
+        }
+
+        .contato-titulo {
+            font-size: 2.2rem;
+            color: #2c1810;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .info-bloco {
+            text-align: center;
+        }
+
+        .info-bloco strong {
+            display: block;
+            color: #d4af37;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-bloco p {
+            line-height: 1.6;
+        }
+
+        .pix-info {
+            background: #f5ede3;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            border: 1px solid #d4af37;
+        }
+
+        .pix-chave {
+            font-size: 1.3rem;
+            color: #2c1810;
+            font-family: monospace;
+            background: white;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #2c1810;
+            color: #e6d5a8;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 4rem;
+            border-top: 3px solid #d4af37;
+        }
+
+        .footer-citacao {
+            font-size: 1.5rem;
+            color: #d4af37;
+            font-style: italic;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .footer-bencaos {
+            font-size: 1.2rem;
+            margin-top: 2rem;
         }
 
         /* Calendário */
         .calendario-section {
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .calendario-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .calendario-titulo {
-            color: var(--primary);
-            font-size: 2rem;
-        }
-
-        .mes-ano {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .mes-ano button {
-            background: var(--light);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            color: var(--primary);
-            transition: all 0.3s;
-        }
-
-        .mes-ano button:hover {
-            background: var(--primary);
-            color: white;
+            padding: 3rem;
+            margin: 4rem 0;
+            border: 1px solid #e6d5a8;
         }
 
         .calendario-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 10px;
+            margin-top: 2rem;
         }
 
         .calendario-dia-semana {
             text-align: center;
+            padding: 1rem;
+            background: #f5ede3;
+            color: #2c1810;
             font-weight: bold;
-            padding: 10px;
-            background: var(--light);
-            color: var(--primary);
-            border-radius: 10px;
         }
 
         .calendario-dia {
-            border: 1px solid #e0d0f0;
-            padding: 10px;
+            border: 1px solid #e6d5a8;
+            padding: 1rem;
             min-height: 100px;
-            border-radius: 10px;
-            transition: all 0.3s;
-            background: #faf5ff;
-        }
-
-        .calendario-dia:hover {
-            transform: scale(1.02);
-            box-shadow: 0 5px 15px rgba(74, 29, 109, 0.2);
-            background: white;
+            background: #fcf9f5;
         }
 
         .dia-numero {
             font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 5px;
+            color: #2c1810;
+            margin-bottom: 0.5rem;
         }
 
         .gira-evento {
-            background: linear-gradient(135deg, var(--primary), #764ba2);
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
+            background: #2c1810;
+            color: #d4af37;
+            padding: 0.3rem;
             font-size: 0.8rem;
-            margin-top: 5px;
+            margin-top: 0.3rem;
             text-align: center;
-        }
-
-        /* Orações Section */
-        .oracoes-section {
-            background: linear-gradient(135deg, var(--light), white);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            border: 2px solid var(--gold);
-        }
-
-        .oracoes-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-        }
-
-        .form-oracao {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .form-oracao h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .tipo-pedido {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-
-        .tipo-btn {
-            flex: 1;
-            padding: 0.8rem;
-            border: 2px solid #e0d0f0;
-            border-radius: 10px;
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .tipo-btn:hover {
-            border-color: var(--gold);
-        }
-
-        .tipo-btn.selected {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .pedidos-oracoes {
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            color: white;
-            padding: 2rem;
-            border-radius: 15px;
-        }
-
-        .pedido-item {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-
-        .pedido-nome {
-            font-weight: bold;
-            color: var(--gold);
-        }
-
-        /* Informações de contato */
-        .info-contato {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .contato-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .info-item {
-            padding: 1.5rem;
-            background: var(--light);
-            border-radius: 15px;
-        }
-
-        .info-item strong {
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
-
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: bold;
-            margin-top: 1rem;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Rodapé */
-        footer {
-            background: var(--secondary);
-            color: white;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .footer-quote {
-            font-size: 1.3rem;
-            color: var(--gold);
-            margin: 2rem 0;
-            font-style: italic;
-        }
-
-        /* Formulários */
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.3rem;
-            color: #555;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-        }
-
-        .btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .btn:hover {
-            background: var(--secondary);
-        }
-
-        .btn-gold {
-            background: var(--gold);
-            color: var(--secondary);
-        }
-
-        /* Modal Login */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 400px;
-            position: relative;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
         }
 
         /* Responsividade */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .calendario-grid {
-                grid-template-columns: repeat(1, 1fr);
-            }
-            
-            .calendario-dia-semana {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .oracoes-grid {
+            .lenda-grid {
                 grid-template-columns: 1fr;
             }
             
-            .hero-stats {
+            .ajuda-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
                 gap: 2rem;
             }
             
-            .stat-number {
+            .logo-principal {
                 font-size: 2rem;
+            }
+            
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <div class="logo-main">JUREMA & TUPINAMBÁ</div>
-                <div class="logo-sub">TENDA ESPÍRITA DE UMBANDA</div>
-                <div class="logo-year">DESDE 1967</div>
-            </div>
-            <div class="nav-links">
-                <a href="#historia">História</a>
-                <a href="#guias">Guias</a>
-                <a href="#calendario">Giras</a>
-                <a href="#oracoes">Orações</a>
-                <a href="#contato">Contato</a>
-                <a href="#sistema">Sistema</a>
-            </div>
-            <button class="login-btn" onclick="abrirModalLogin()">Acessar Sistema</button>
-        </nav>
+        <div class="logo-principal">JUREMA & TUPINAMBÁ</div>
+        <div class="logo-secundario">TENDA ESPÍRITA DE UMBANDA</div>
+        <div class="ano-fundacao">DESDE 1967</div>
     </header>
 
+    <nav>
+        <a href="#historia">HISTÓRIA</a>
+        <a href="#guias">GUIAS</a>
+        <a href="#giras">GIRAS</a>
+        <a href="#campanha">CAMPANHA</a>
+        <a href="#contato">CONTATO</a>
+    </nav>
+
     <main>
-        <!-- Hero Section - Raízes Fortes, Frutos de Luz -->
-        <section class="hero" id="historia">
-            <h1>Raízes Fortes, Frutos de Luz</h1>
-            <div class="hero-subtitle">A história, a força e o futuro da Tenda Espírita de Umbanda Jurema e Tupinambá</div>
+        <!-- Raízes Fortes, Frutos de Luz -->
+        <section id="historia" class="raizes-section">
+            <h1 class="raizes-titulo">RAÍZES FORTES, FRUTOS DE LUZ</h1>
+            <div class="raizes-subtitulo">A história, a força e o futuro da Tenda Espírita de Umbanda Jurema e Tupinambá</div>
             
-            <div class="hero-stats">
-                <div class="stat-item">
+            <div class="stats-container">
+                <div class="stat-box">
                     <div class="stat-number">1967</div>
-                    <div class="stat-label">Mais de meio século de portas abertas ininterruptamente</div>
+                    <div class="stat-text">Mais de meio século de portas abertas ininterruptamente</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat-box">
                     <div class="stat-number">50</div>
-                    <div class="stat-label">Anos sob a liderança da Mãe Maria Helena Peres</div>
+                    <div class="stat-text">Anos sob a liderança da Mãe de Santo Maria Helena Peres</div>
                 </div>
-                <div class="stat-item">
+                <div class="stat-box">
                     <div class="stat-number">140</div>
-                    <div class="stat-label">Corações - Nossa lotação máxima em dias de sessão</div>
+                    <div class="stat-text">Corações - Nossa lotação máxima em dias de sessão</div>
                 </div>
             </div>
 
-            <div class="hero-quote">
+            <div class="ponto-cantado">
                 "Estava na beira do rio, sem poder atravessar. Chamei pelo Caboclo, Caboclo Tupinambá."
             </div>
         </section>
 
         <!-- Guias Espirituais -->
-        <section class="guias-section" id="guias">
-            <h2 class="section-title">Nossos Guias Espirituais</h2>
+        <section id="guias" class="guias-section">
+            <h2 class="section-titulo">NOSSOS GUIAS</h2>
             
             <div class="guias-grid">
                 <!-- Caboclo Tupinambá -->
                 <div class="guia-card">
-                    <div class="guia-icon">🏹</div>
-                    <h3>Caboclo Tupinambá</h3>
-                    <h4>O Pilar da Proteção e Força</h4>
+                    <div class="guia-nome">Caboclo Tupinambá</div>
+                    <div class="guia-titulo">O Pilar da Proteção e Força</div>
                     <div class="guia-historia">
                         <p><strong>Guerreiro de Oxóssi:</strong> Senhor da flecha, protetor absoluto que não perde uma demanda.</p>
                         <p><strong>O Pai Carnal:</strong> Aquele que resgatou e criou a menina Jurema aos sete meses de vida.</p>
@@ -651,282 +629,234 @@
 
                 <!-- Cabocla Jurema -->
                 <div class="guia-card">
-                    <div class="guia-icon">🌿</div>
-                    <h3>Cabocla Jurema</h3>
-                    <h4>A Rainha das Matas, das Águas e da Sabedoria Ancestral</h4>
+                    <div class="guia-nome">Cabocla Jurema</div>
+                    <div class="guia-titulo">A Rainha das Matas, das Águas e da Sabedoria Ancestral</div>
                     <div class="guia-historia">
-                        <p><strong>Resgate:</strong> Abandonada aos pés de uma árvore de espinhos (a Jurema), foi salva e criada por Tupinambá.</p>
+                        <p><strong>A Lenda:</strong></p>
+                        <p><strong>Resgate:</strong> Abandonada aos pés de uma árvore fétida de espinhos (a Jurema), foi salva e criada por Tupinambá.</p>
                         <p><strong>Liderança:</strong> Cresceu para se tornar a cacique e a primeira guerreira de sua tribo.</p>
-                        <p><strong>Sacrifício:</strong> Apaixonou-se por Huascar. Na fuga, recebeu a flecha destinada a ele.</p>
-                        <p><strong>Renascimento:</strong> No local de sua queda nasceu um girassol. Hoje, brilha como divindade de cura e luz.</p>
+                        <p><strong>Sacrifício:</strong> Apaixonou-se por Huascar, guerreiro da Terra do Sol. Na fuga para viver esse amor, recebeu no peito a flecha destinada a ele.</p>
+                        <p><strong>Renascimento:</strong> No local de sua queda nasceu um girassol. Hoje, brilha no mundo espiritual como divindade de cura e luz.</p>
                     </div>
                 </div>
 
                 <!-- Dr. Bezerra de Menezes -->
                 <div class="guia-card">
-                    <div class="guia-icon">⚕️</div>
-                    <h3>Dr. Bezerra de Menezes</h3>
-                    <h4>O Médico dos Pobres</h4>
+                    <div class="guia-nome">Dr. Bezerra de Menezes</div>
+                    <div class="guia-titulo">O Médico dos Pobres</div>
                     <div class="guia-historia">
-                        <p><strong>A Vida Física (1831–1900):</strong> Médico, político, Presidente da Federação Espírita Brasileira. O Kardec Brasileiro.</p>
-                        <p><strong>A Caridade:</strong> Celebrizou-se pela caridade incondicional, doando seu anel de formatura para comprar remédios.</p>
-                        <p><strong>A Vida Espiritual:</strong> Hoje, comanda as legiões de cura, consolando aflitos e distribuindo saúde física e espiritual.</p>
+                        <p><strong>A Vida Física (1831–1900):</strong> De médico e político respeitado no Império a Presidente da Federação Espírita Brasileira. O Kardec Brasileiro.</p>
+                        <p><strong>A Doação Suprema:</strong> Celebrizou-se pela caridade incondicional, chegando a doar seu próprio anel de formatura em medicina para que uma mãe pudesse comprar remédios para o filho.</p>
+                        <p><strong>A Vida Espiritual:</strong> Hoje, comanda as legiões de cura consolando aflitos e distribuindo saúde física e espiritual a quem necessita.</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- A Ciência da Cura -->
-            <div style="background: white; border-radius: 20px; padding: 2rem; margin-top: 2rem; border-left: 5px solid var(--gold);">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">A Ciência da Cura</h3>
-                <p>No reino espiritual da Jurema, o trabalho de cura física e espiritual do corpo e da mente é regido por sete reinos de sabedoria e ervas sagradas: Lato.</p>
-                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
-                    <span style="background: var(--light); padding: 0.5rem 1rem; border-radius: 20px;">Vajuca</span>
-                    <span style="background: var(--light); padding: 0.5rem 1rem; border-radius: 20px;">Junça</span>
-                    <span style="background: var(--light); padding: 0.5rem 1rem; border-radius: 20px;">Calucá</span>
-                    <span style="background: var(--light); padding: 0.5rem 1rem; border-radius: 20px;">Manacá</span>
-                    <span style="background: var(--light); padding: 0.5rem 1rem; border-radius: 20px;">Angico</span>
-                    <span style="background: var(--light); padding: 0.5rem 1rem; border-radius: 20px;">Arcoira</span>
-                    <span style="background: var(--light); padding: 0.5rem 1rem; border-radius: 20px;">Jurema</span>
                 </div>
             </div>
         </section>
 
-        <!-- Calendário de Giras -->
-        <section class="calendario-section" id="calendario">
-            <div class="calendario-header">
-                <h2 class="calendario-titulo">📅 Calendário de Giras - Março 2026</h2>
-                <div class="mes-ano">
-                    <button onclick="mesAnterior()">←</button>
-                    <span style="font-size: 1.3rem; font-weight: bold;">Março 2026</span>
-                    <button onclick="proximoMes()">→</button>
-                </div>
-            </div>
+        <!-- Ciência da Cura -->
+        <section class="cura-section">
+            <h2 class="cura-titulo">A CIÊNCIA DA CURA</h2>
+            <p>No reino espiritual da Jurema, o trabalho de cura física e espiritual do corpo e da mente é regido por sete reinos de sabedoria e ervas sagradas: Lato.</p>
             
-            <div class="calendario-grid" id="calendario-grid">
-                <!-- Dias da semana -->
-                <div class="calendario-dia-semana">Dom</div>
-                <div class="calendario-dia-semana">Seg</div>
-                <div class="calendario-dia-semana">Ter</div>
-                <div class="calendario-dia-semana">Qua</div>
-                <div class="calendario-dia-semana">Qui</div>
-                <div class="calendario-dia-semana">Sex</div>
-                <div class="calendario-dia-semana">Sáb</div>
+            <div class="reinos-grid">
+                <span class="reino-item">Vajuca</span>
+                <span class="reino-item">Junça</span>
+                <span class="reino-item">Calucá</span>
+                <span class="reino-item">Manacá</span>
+                <span class="reino-item">Angico</span>
+                <span class="reino-item">Arcoira</span>
+                <span class="reino-item">Jurema</span>
+            </div>
+        </section>
+
+        <!-- Bezerra de Menezes -->
+        <section class="bezerra-section">
+            <h2 class="bezerra-titulo">O PILAR DA CARIDADE ESPIRITUAL</h2>
+            <div class="bezerra-subtitulo">O Médico dos Pobres</div>
+            
+            <div class="bezerra-citacao">
+                "Seca-se a planta e cai a sua flor, mas a palavra de nosso Deus permanece eternamente."
+            </div>
+        </section>
+
+        <!-- Espaço Físico -->
+        <section class="espaco-section">
+            <h2 class="espaco-titulo">UM ESPAÇO FÍSICO MENOR QUE O CHAMADO ESPIRITUAL</h2>
+            <p class="espaco-texto">A força de Jurema, Tupinambá e Bezerra atrai multidões em busca de socorro.</p>
+            <p class="espaco-texto">Atendemos até 140 pessoas por sessão em um espaço que chegou ao seu limite.</p>
+            <p class="espaco-texto">Para manter a qualidade do acolhimento aos consulentes e o conforto dos médiuns, precisamos expandir.</p>
+        </section>
+
+        <!-- Calendário de Giras -->
+        <section id="giras" class="calendario-section">
+            <h2 class="section-titulo">GIRAS - MARÇO 2026</h2>
+            
+            <div class="calendario-grid">
+                <div class="calendario-dia-semana">DOM</div>
+                <div class="calendario-dia-semana">SEG</div>
+                <div class="calendario-dia-semana">TER</div>
+                <div class="calendario-dia-semana">QUA</div>
+                <div class="calendario-dia-semana">QUI</div>
+                <div class="calendario-dia-semana">SEX</div>
+                <div class="calendario-dia-semana">SÁB</div>
                 
-                <!-- Dias com eventos -->
                 <div class="calendario-dia"><div class="dia-numero">1</div></div>
-                <div class="calendario-dia"><div class="dia-numero">2</div>
-                    <div class="gira-evento">Gira de Caboclos - 20h</div>
-                </div>
+                <div class="calendario-dia"><div class="dia-numero">2</div><div class="gira-evento">Gira 20h</div></div>
                 <div class="calendario-dia"><div class="dia-numero">3</div></div>
-                <div class="calendario-dia"><div class="dia-numero">4</div>
-                    <div class="gira-evento">Gira de Pretos Velhos - 20h</div>
-                </div>
+                <div class="calendario-dia"><div class="dia-numero">4</div><div class="gira-evento">Gira 20h</div></div>
                 <div class="calendario-dia"><div class="dia-numero">5</div></div>
                 <div class="calendario-dia"><div class="dia-numero">6</div></div>
                 <div class="calendario-dia"><div class="dia-numero">7</div></div>
                 <div class="calendario-dia"><div class="dia-numero">8</div></div>
-                <div class="calendario-dia"><div class="dia-numero">9</div>
-                    <div class="gira-evento">Gira de Cura - 20h</div>
-                </div>
+                <div class="calendario-dia"><div class="dia-numero">9</div><div class="gira-evento">Gira 20h</div></div>
                 <div class="calendario-dia"><div class="dia-numero">10</div></div>
-                <div class="calendario-dia"><div class="dia-numero">11</div>
-                    <div class="gira-evento">Gira de Iemanjá - 19h30</div>
-                </div>
+                <div class="calendario-dia"><div class="dia-numero">11</div><div class="gira-evento">Gira 20h</div></div>
                 <div class="calendario-dia"><div class="dia-numero">12</div></div>
                 <div class="calendario-dia"><div class="dia-numero">13</div></div>
                 <div class="calendario-dia"><div class="dia-numero">14</div></div>
-                <div class="calendario-dia"><div class="dia-numero">15</div>
-                    <div class="gira-evento">Gira de Caboclos - 20h</div>
-                </div>
-                <div class="calendario-dia"><div class="dia-numero">16</div></div>
+                <div class="calendario-dia"><div class="dia-numero">15</div></div>
+                <div class="calendario-dia"><div class="dia-numero">16</div><div class="gira-evento">Gira 20h</div></div>
                 <div class="calendario-dia"><div class="dia-numero">17</div></div>
-                <div class="calendario-dia"><div class="dia-numero">18</div>
-                    <div class="gira-evento">Gira de Exu - 21h</div>
-                </div>
+                <div class="calendario-dia"><div class="dia-numero">18</div><div class="gira-evento">Gira 20h</div></div>
                 <div class="calendario-dia"><div class="dia-numero">19</div></div>
                 <div class="calendario-dia"><div class="dia-numero">20</div></div>
                 <div class="calendario-dia"><div class="dia-numero">21</div></div>
-                <div class="calendario-dia"><div class="dia-numero">22</div>
-                    <div class="gira-evento">Gira de Erês - 16h</div>
-                </div>
-                <div class="calendario-dia"><div class="dia-numero">23</div></div>
+                <div class="calendario-dia"><div class="dia-numero">22</div></div>
+                <div class="calendario-dia"><div class="dia-numero">23</div><div class="gira-evento">Gira 20h</div></div>
                 <div class="calendario-dia"><div class="dia-numero">24</div></div>
-                <div class="calendario-dia"><div class="dia-numero">25</div>
-                    <div class="gira-evento">Gira de Baianos - 20h</div>
-                </div>
+                <div class="calendario-dia"><div class="dia-numero">25</div><div class="gira-evento">Gira 20h</div></div>
                 <div class="calendario-dia"><div class="dia-numero">26</div></div>
                 <div class="calendario-dia"><div class="dia-numero">27</div></div>
-                <div class="calendario-dia"><div class="dia-numero">28</div>
-                    <div class="gira-evento">Gira de Ciganos - 20h</div>
-                </div>
+                <div class="calendario-dia"><div class="dia-numero">28</div></div>
                 <div class="calendario-dia"><div class="dia-numero">29</div></div>
-                <div class="calendario-dia"><div class="dia-numero">30</div></div>
-                <div class="calendario-dia"><div class="dia-numero">31</div>
-                    <div class="gira-evento">Gira de Pretos Velhos - 20h</div>
+                <div class="calendario-dia"><div class="dia-numero">30</div><div class="gira-evento">Gira 20h</div></div>
+                <div class="calendario-dia"><div class="dia-numero">31</div></div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem; font-style: italic; color: #2c1810;">
+                Sessões: Segundas-feiras (20h às 22h30) e Quartas-feiras (20h às 23h)
+            </p>
+        </section>
+
+        <!-- Projeto Reforma -->
+        <section id="campanha" class="reforma-section">
+            <h2 class="reforma-titulo">O PROJETO DE REFORMA E AMPLIAÇÃO</h2>
+            <p>A estruturação do nosso futuro exige:</p>
+            
+            <ul class="reforma-lista">
+                <li>Ampliação do terreiro (Congá)</li>
+                <li>Reforma e ampliação do espaço de atendimento</li>
+                <li>Construção de nova área administrativa</li>
+                <li>Reforma e ampliação dos vestiários e banheiros</li>
+                <li>Pintura geral e manutenção de equipamentos</li>
+                <li>Mão de obra especializada e novas cadeiras</li>
+            </ul>
+        </section>
+
+        <!-- Campanha Vaquinha -->
+        <section class="campanha-section">
+            <h2 class="campanha-titulo">A CAMPANHA: VAQUINHA ONLINE</h2>
+            <div class="vakinha-id">ID da Campanha: 3109459</div>
+            
+            <div class="progresso-container">
+                <div class="progresso-bar" style="width: 5%;"></div>
+            </div>
+            
+            <div class="campanha-stats">
+                <div class="stat-campanha">
+                    <div class="valor">R$ 60.000,00</div>
+                    <div>Meta Necessária</div>
+                </div>
+                <div class="stat-campanha">
+                    <div class="valor">R$ 2.960,00</div>
+                    <div>Arrecadado</div>
+                </div>
+                <div class="stat-campanha">
+                    <div class="valor">5%</div>
+                    <div>Progresso</div>
+                </div>
+                <div class="stat-campanha">
+                    <div class="valor">25 ❤️</div>
+                    <div>Apoiadores Atuais</div>
                 </div>
             </div>
         </section>
 
-        <!-- Pedidos de Oração -->
-        <section class="oracoes-section" id="oracoes">
-            <h2 class="section-title">🙏 Pedidos de Oração</h2>
+        <!-- Como Ser um Fruto Desta Obra -->
+        <section class="ajuda-section">
+            <h2 class="section-titulo">COMO SER UM FRUTO DESTA OBRA</h2>
             
-            <div class="oracoes-grid">
-                <!-- Formulário de Pedido -->
-                <div class="form-oracao">
-                    <h3>Fazer um Pedido</h3>
-                    
-                    <div class="form-group">
-                        <label>Seu Nome (opcional):</label>
-                        <input type="text" placeholder="Como deseja ser identificado">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Tipo de Pedido:</label>
-                        <div class="tipo-pedido">
-                            <button type="button" class="tipo-btn selected">👤 Encarnado</button>
-                            <button type="button" class="tipo-btn">👻 Desencarnado</button>
-                            <button type="button" class="tipo-btn">🐾 Animal</button>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Nome da Pessoa/Animal:</label>
-                        <input type="text" placeholder="Nome de quem precisa de oração">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Motivo do Pedido:</label>
-                        <textarea rows="3" placeholder="Descreva o motivo da oração..."></textarea>
-                    </div>
-                    
-                    <button class="btn btn-gold">Enviar Pedido de Oração</button>
+            <div class="ajuda-grid">
+                <div class="ajuda-item">
+                    <div class="ajuda-numero">1</div>
+                    <h3>Doe via PIX</h3>
+                    <p>Chave: E-mail (Solicite diretamente ao criador da vaquinha para podermos registrar e agradecer sua doação)</p>
                 </div>
                 
-                <!-- Pedidos Recentes -->
-                <div class="pedidos-oracoes">
-                    <h3 style="color: var(--gold); margin-bottom: 1.5rem;">🕯️ Pedidos Recentes</h3>
-                    
-                    <div class="pedido-item">
-                        <div class="pedido-nome">Maria - pela cura de João</div>
-                        <div style="font-size: 0.9rem; opacity: 0.9;">Encarnado • Saúde</div>
-                    </div>
-                    
-                    <div class="pedido-item">
-                        <div class="pedido-nome">Carlos - pelo desencarnado Antônio</div>
-                        <div style="font-size: 0.9rem; opacity: 0.9;">Desencarnado • Paz</div>
-                    </div>
-                    
-                    <div class="pedido-item">
-                        <div class="pedido-nome">Ana - pelo animal Thor</div>
-                        <div style="font-size: 0.9rem; opacity: 0.9;">Animal • Saúde</div>
-                    </div>
-                    
-                    <div style="margin-top: 2rem; font-style: italic; color: var(--gold);">
-                        "Seca-se a planta e cai a sua flor, mas a palavra de nosso Deus permanece eternamente."
-                    </div>
+                <div class="ajuda-item">
+                    <div class="ajuda-numero">2</div>
+                    <h3>Doe pelo Vakinha</h3>
+                    <p>Acesse Vakinha.com.br e busque pelo ID 3109459 (Ampliação e Reforma - Terreiro Jurema e Tupinambá)</p>
+                </div>
+                
+                <div class="ajuda-item">
+                    <div class="ajuda-numero">3</div>
+                    <h3>Compartilhe</h3>
+                    <p>Envie esta apresentação e o link da vaquinha para amigos e familiares sensíveis à causa da caridade</p>
                 </div>
             </div>
         </section>
 
-        <!-- Contato -->
-        <section class="info-contato" id="contato">
-            <h2 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 2rem;">Nossas Portas Estão Abertas</h2>
+        <!-- Nossas Portas Estão Abertas -->
+        <section id="contato" class="contato-section">
+            <h2 class="contato-titulo">NOSSAS PORTAS ESTÃO ABERTAS</h2>
+            <div style="text-align: center; margin-bottom: 2rem;">Tenda Espírita de Umbanda Jurema e Tupinambá</div>
             
-            <div class="contato-grid">
-                <div class="info-item">
-                    <strong>📍 Endereço</strong>
-                    <p style="margin-top: 0.5rem;">Rua Joaquim Nabuco, 94<br>Vila Matias, Santos/SP<br>CEP: 11015-460</p>
+            <div class="info-container">
+                <div class="info-bloco">
+                    <strong>ONDE</strong>
+                    <p>Rua Joaquim Nabuco, 94 - Vila Matias<br>Santos - SP<br>CEP: 11015-460</p>
                 </div>
                 
-                <div class="info-item">
-                    <strong>🕯️ Sessões</strong>
-                    <p style="margin-top: 0.5rem;">Segundas-feiras: 20h às 22h30<br>Quartas-feiras: 20h às 23h</p>
+                <div class="info-bloco">
+                    <strong>SESSÕES</strong>
+                    <p>Segundas-feiras: 20h às 22h30<br>Quartas-feiras: 20h às 23h</p>
                 </div>
                 
-                <div class="info-item">
-                    <strong>📞 Contato</strong>
-                    <p style="margin-top: 0.5rem;">Dirigente: Dona Helena Peres</p>
-                    <a href="https://wa.me/5513996687038" class="whatsapp-btn" target="_blank">
-                        WhatsApp (13) 99668-7038
-                    </a>
+                <div class="info-bloco">
+                    <strong>CONTATO</strong>
+                    <p>(13) 99210-3683</p>
                 </div>
             </div>
-
-            <div style="margin-top: 3rem; padding: 2rem; background: var(--light); border-radius: 15px;">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">Apoie nossa Casa</h3>
-                <p>PIX: (13) 99668-7038 - Dona Helena Peres</p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem;">Sua contribuição ajuda a manter nossas obras de caridade</p>
+            
+            <div class="pix-info">
+                <strong>PIX PARA DOAÇÕES</strong>
+                <div class="pix-chave">Chave: E-mail (solicitar diretamente)</div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div style="font-size: 2rem; color: var(--gold); margin-bottom: 1rem;">JUREMA & TUPINAMBÁ</div>
-            <p style="font-size: 1.1rem;">Tenda Espírita de Umbanda - Santos/SP</p>
-            
-            <div class="footer-quote">
-                "A caridade que você planta hoje no plano físico é a raiz que sustentará a luz espiritual de amanhã."
-            </div>
-            
-            <p>Que Jurema, Tupinambá e Bezerra de Menezes abençoem seus caminhos.</p>
-            
-            <p style="margin-top: 2rem; font-size: 0.9rem;">© 2026 - Todos os direitos reservados</p>
+        <div class="footer-citacao">
+            "A caridade que você planta hoje no plano físico é a raiz que sustentará a luz espiritual de amanhã."
         </div>
+        
+        <div class="footer-bencaos">
+            Que Jurema, Tupinambá e Bezerra de Menezes abençoem seus caminhos.
+        </div>
+        
+        <p style="margin-top: 3rem; font-size: 0.9rem;">© 2026 - Tenda Espírita de Umbanda Jurema e Tupinambá - Santos/SP</p>
     </footer>
 
-    <!-- Modal de Login -->
-    <div class="modal" id="modal-login">
-        <div class="modal-content">
-            <span class="close-modal" onclick="fecharModalLogin()">&times;</span>
-            <h2 style="color: var(--primary); margin-bottom: 1.5rem; text-align: center;">Acessar Sistema de Gestão</h2>
-            
-            <div style="margin-bottom: 2rem; text-align: center;">
-                <p>Escolha seu perfil para fazer login:</p>
-            </div>
-            
-            <div style="display: grid; gap: 1rem;">
-                <button class="btn" onclick="window.location.href='admin.html'">👤 Administrador</button>
-                <button class="btn" onclick="window.location.href='medium.html'">🧘 Médium</button>
-                <button class="btn" onclick="window.location.href='socio.html'">💰 Sócio</button>
-                <button class="btn" onclick="window.location.href='consulente.html'">🙏 Consulente (Não Sócio)</button>
-                <button class="btn" onclick="window.location.href='atendente.html'">📋 Atendente</button>
-            </div>
-            
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666; text-align: center;">
-                Contas demo:<br>
-                Admin: admin@terreiro.com / admin123<br>
-                Médium: joao@email.com / 123456<br>
-                Sócio: roberto@email.com / 123456
-            </p>
-        </div>
-    </div>
-
     <script>
-        function abrirModalLogin() {
-            document.getElementById('modal-login').classList.add('active');
-        }
-
-        function fecharModalLogin() {
-            document.getElementById('modal-login').classList.remove('active');
-        }
-
-        function mesAnterior() {
-            alert("Navegação entre meses será implementada no sistema completo");
-        }
-
-        function proximoMes() {
-            alert("Navegação entre meses será implementada no sistema completo");
-        }
-
-        // Fechar modal ao clicar fora
-        window.onclick = function(event) {
-            const modal = document.getElementById('modal-login');
-            if(event.target == modal) {
-                fecharModalLogin();
-            }
-        }
+        // Funções simples para navegação suave
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
     </script>
 </body>
 </html>
