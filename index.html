@@ -674,18 +674,31 @@
             margin-bottom: 1rem;
         }
 
-        /* Modal Login */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
+        <div class="modal" id="modal-login">
+    <div class="modal-content">
+        <span class="close-modal" onclick="fecharModalLogin()">&times;</span>
+        <h2 style="color: var(--primary); margin-bottom: 1.5rem; text-align: center;">Acessar Sistema de Gestão</h2>
+        
+        <div style="margin-bottom: 2rem; text-align: center;">
+            <p>Escolha seu perfil para fazer login:</p>
+        </div>
+        
+        <div style="display: grid; gap: 1rem;">
+            <button class="btn" onclick="window.location.href='admin.html'">👤 Administrador</button>
+            <button class="btn" onclick="window.location.href='medium.html'">🧘 Médium</button>
+            <button class="btn" onclick="window.location.href='socio.html'">💰 Sócio</button>
+            <button class="btn" onclick="window.location.href='consulente.html'">🙏 Consulente (Não Sócio)</button>
+            <button class="btn" onclick="window.location.href='atendente.html'">📋 Atendente</button>
+        </div>
+        
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666; text-align: center;">
+            Contas demo:<br>
+            Admin: admin@terreiro.com / admin123<br>
+            Médium: joao@email.com / 123456<br>
+            Sócio: roberto@email.com / 123456
+        </p>
+    </div>
+</div>
         }
 
         .modal.active {

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulente - Jurema & Tupinambá</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="sistema-header">
+        <nav class="sistema-nav">
+            <div class="sistema-logo">JUREMA & TUPINAMBÁ</div>
+            <div class="sistema-usuario">
+                <div class="sistema-usuario-info">
+                    <div class="sistema-usuario-nome" id="usuario-nome">Juliana Santos</div>
+                    <div class="sistema-usuario-perfil" id="usuario-perfil">Consulente</div>
+                </div>
+                <button class="sistema-logout" onclick="logout()">Sair</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="sistema-main">
+        <!-- Agendar Consulta -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>📝</i> Agendar Consulta</h2>
+            </div>
+            
+            <form onsubmit="agendarConsulta(event)">
+                <div class="form-group">
+                    <label>Selecione a Gira:</label>
+                    <select required>
+                        <option value="">Escolha uma data</option>
+                        <option value="1">09/03/2026 - Gira de Caboclos - 20h</option>
+                        <option value="2">11/03/2026 - Gira de Pretos Velhos - 20h</option>
+                        <option value="3">16/03/2026 - Gira de Iemanjá - 19h30</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Médium (será atribuído automaticamente):</label>
+                    <input type="text" value="Disponível conforme ordem de chegada" disabled style="background: var(--light);">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Agendar Consulta</button>
+            </form>
+        </div>
+
+        <!-- Meus Agendamentos -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>📋</i> Meus Agendamentos</h2>
+            </div>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Gira</th>
+                            <th>Médium</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11/03/2026</td>
+                            <td>Gira de Pretos Velhos</td>
+                            <td>Maria de Iemanjá</td>
+                            <td><span class="status-badge status-confirmado">Agendado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Informações -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>ℹ️</i> Sobre as Consultas</h2>
+            </div>
+            
+            <div style="line-height: 1.8;">
+                <p>🕯️ As consultas são gratuitas, mantidas pela caridade e doações.</p>
+                <p>⏳ Chegue com 30 minutos de antecedência.</p>
+                <p>🙏 Traga uma vela branca (opcional) para acender no Congá.</p>
+                <p>📿 Respeite a fila e o momento de cada consulente.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        function agendarConsulta(event) {
+            event.preventDefault();
+            mostrarAlerta('Consulta agendada com sucesso!', 'success');
+        }
+    </script>
+</body>
+</html>

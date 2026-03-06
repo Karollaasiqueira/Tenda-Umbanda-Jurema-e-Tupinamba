@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Jurema & Tupinambá</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-container {
+            margin-top: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 2px solid var(--light);
+            margin-bottom: 2rem;
+        }
+        
+        .tab {
+            padding: 0.8rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab:hover {
+            color: var(--primary);
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--gold);
+            font-weight: bold;
+        }
+        
+        .tab-pane {
+            display: none;
+        }
+        
+        .tab-pane.active {
+            display: block;
+        }
+        
+        .filtros {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <header class="sistema-header">
+        <nav class="sistema-nav">
+            <div class="sistema-logo">JUREMA & TUPINAMBÁ</div>
+            <div class="sistema-usuario">
+                <div class="sistema-usuario-info">
+                    <div class="sistema-usuario-nome" id="usuario-nome">Administrador</div>
+                    <div class="sistema-usuario-perfil" id="usuario-perfil">Admin</div>
+                </div>
+                <button class="sistema-logout" onclick="logout()">Sair</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="sistema-main">
+        <!-- Dashboard -->
+        <div class="dashboard-stats">
+            <div class="dashboard-card">
+                <div class="numero" id="total-giras">12</div>
+                <div class="rotulo">Giras no Mês</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="numero" id="total-mediuns">8</div>
+                <div class="rotulo">Médiuns Ativos</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="numero" id="total-socios">25</div>
+                <div class="rotulo">Sócios</div>
+            </div>
+            <div class="dashboard-card">
+                <div class="numero" id="total-consultas">47</div>
+                <div class="rotulo">Consultas no Mês</div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab active" onclick="mudarTab('giras')">Giras</button>
+                <button class="tab" onclick="mudarTab('mediuns')">Médiuns</button>
+                <button class="tab" onclick="mudarTab('socios')">Sócios</button>
+                <button class="tab" onclick="mudarTab('consultas')">Consultas</button>
+                <button class="tab" onclick="mudarTab('pagamentos')">Pagamentos</button>
+                <button class="tab" onclick="mudarTab('relatorios')">Relatórios</button>
+            </div>
+
+            <!-- Giras -->
+            <div class="tab-pane active" id="tab-giras">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i>📅</i> Giras Agendadas</h2>
+                        <button class="btn btn-primary" onclick="abrirModalNovaGira()">+ Nova Gira</button>
+                    </div>
+                    
+                    <div class="filtros">
+                        <select class="filtro-mes">
+                            <option value="2">Março 2026</option>
+                            <option value="3">Abril 2026</option>
+                        </select>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Tipo</th>
+                                    <th>Horário</th>
+                                    <th>Linha</th>
+                                    <th>Médiuns</th>
+                                    <th>Vagas</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabela-giras">
+                                <tr>
+                                    <td>09/03/2026</td>
+                                    <td>Gira de Caboclos</td>
+                                    <td>20:00</td>
+                                    <td>Oxóssi</td>
+                                    <td>8/10</td>
+                                    <td>10</td>
+                                    <td>
+                                        <button class="btn btn-outline btn-small">✏️</button>
+                                        <button class="btn btn-danger btn-small">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>11/03/2026</td>
+                                    <td>Gira de Pretos Velhos</td>
+                                    <td>20:00</td>
+                                    <td>Pai Benedito</td>
+                                    <td>5/8</td>
+                                    <td>8</td>
+                                    <td>
+                                        <button class="btn btn-outline btn-small">✏️</button>
+                                        <button class="btn btn-danger btn-small">🗑️</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Médiuns -->
+            <div class="tab-pane" id="tab-mediuns">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i>🧘</i> Médiuns da Casa</h2>
+                        <button class="btn btn-primary" onclick="abrirModalNovoMedium()">+ Novo Médium</button>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Foto</th>
+                                    <th>Nome</th>
+                                    <th>Nome Espiritual</th>
+                                    <th>Tipo</th>
+                                    <th>Contato</th>
+                                    <th>Emergência</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><div class="medium-foto">👨</div></td>
+                                    <td>João de Oxóssi</td>
+                                    <td>Caboclo Sete Flechas</td>
+                                    <td>Médium de Consulta</td>
+                                    <td>(13) 99999-9999</td>
+                                    <td>Maria - (13) 98888-8888</td>
+                                    <td>
+                                        <button class="btn btn-outline btn-small">✏️</button>
+                                        <button class="btn btn-danger btn-small">🗑️</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="medium-foto">👩</div></td>
+                                    <td>Maria de Iemanjá</td>
+                                    <td>Cabocla Jurema</td>
+                                    <td>Médium de Consulta</td>
+                                    <td>(13) 98888-8888</td>
+                                    <td>João - (13) 97777-7777</td>
+                                    <td>
+                                        <button class="btn btn-outline btn-small">✏️</button>
+                                        <button class="btn btn-danger btn-small">🗑️</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sócios -->
+            <div class="tab-pane" id="tab-socios">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i>💰</i> Sócios</h2>
+                        <button class="btn btn-primary" onclick="abrirModalNovoSocio()">+ Novo Sócio</button>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Telefone</th>
+                                    <th>Status</th>
+                                    <th>Último Pagamento</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Roberto Silva</td>
+                                    <td>roberto@email.com</td>
+                                    <td>(13) 95555-5555</td>
+                                    <td><span class="status-badge status-confirmado">Adimplente</span></td>
+                                    <td>01/03/2026</td>
+                                    <td>
+                                        <button class="btn btn-success btn-small">✓</button>
+                                        <button class="btn btn-outline btn-small">✏️</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consultas -->
+            <div class="tab-pane" id="tab-consultas">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i>📝</i> Consultas Agendadas</h2>
+                    </div>
+                    
+                    <div class="filtros">
+                        <select>
+                            <option>Todas as giras</option>
+                            <option>09/03/2026 - Gira de Caboclos</option>
+                            <option>11/03/2026 - Gira de Pretos Velhos</option>
+                        </select>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Gira</th>
+                                    <th>Consulente</th>
+                                    <th>Tipo</th>
+                                    <th>Médium</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>09/03/2026</td>
+                                    <td>Gira de Caboclos</td>
+                                    <td>Roberto Silva</td>
+                                    <td>Sócio</td>
+                                    <td>João de Oxóssi</td>
+                                    <td><span class="status-badge status-confirmado">Agendado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>11/03/2026</td>
+                                    <td>Gira de Pretos Velhos</td>
+                                    <td>Juliana Santos</td>
+                                    <td>Não Sócio</td>
+                                    <td>Maria de Iemanjá</td>
+                                    <td><span class="status-badge status-confirmado">Agendado</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagamentos -->
+            <div class="tab-pane" id="tab-pagamentos">
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i>💳</i> Pagamentos Pendentes</h2>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Sócio</th>
+                                    <th>Mês Referência</th>
+                                    <th>Valor</th>
+                                    <th>Comprovante</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Roberto Silva</td>
+                                    <td>Março/2026</td>
+                                    <td>R$ 50,00</td>
+                                    <td><a href="#">comprovante.pdf</a></td>
+                                    <td>
+                                        <button class="btn btn-success btn-small">Confirmar</button>
+                                        <button class="btn btn-danger btn-small">Rejeitar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Relatórios -->
+            <div class="tab-pane" id="tab-relatorios">
+                <div class="grid">
+                    <div class="card">
+                        <h3>Relatório de Frequência</h3>
+                        <p>Médiuns x Giras</p>
+                        <button class="btn btn-primary">Gerar PDF</button>
+                    </div>
+                    <div class="card">
+                        <h3>Relatório Financeiro</h3>
+                        <p>Mensalidades e Doações</p>
+                        <button class="btn btn-primary">Gerar PDF</button>
+                    </div>
+                    <div class="card">
+                        <h3>Relatório de Atendimentos</h3>
+                        <p>Consultas realizadas</p>
+                        <button class="btn btn-primary">Gerar PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Nova Gira -->
+        <div class="modal" id="modal-nova-gira">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Nova Gira</h3>
+                    <span class="close-modal" onclick="fecharModal('modal-nova-gira')">&times;</span>
+                </div>
+                
+                <form onsubmit="salvarGira(event)">
+                    <div class="form-group">
+                        <label>Data:</label>
+                        <input type="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tipo de Gira:</label>
+                        <select required>
+                            <option>Gira de Caboclos</option>
+                            <option>Gira de Pretos Velhos</option>
+                            <option>Gira de Iemanjá</option>
+                            <option>Gira de Exu</option>
+                            <option>Gira de Erês</option>
+                            <option>Gira de Baianos</option>
+                            <option>Gira de Ciganos</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Horário:</label>
+                            <input type="time" value="20:00" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Vagas:</label>
+                            <input type="number" value="10" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Linha de Trabalho:</label>
+                        <input type="text" placeholder="Ex: Oxóssi, Pai Benedito..." required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Observações:</label>
+                        <textarea rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Salvar Gira</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal Novo Médium -->
+        <div class="modal" id="modal-novo-medium">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Novo Médium</h3>
+                    <span class="close-modal" onclick="fecharModal('modal-novo-medium')">&times;</span>
+                </div>
+                
+                <form onsubmit="salvarMedium(event)">
+                    <div class="form-group">
+                        <label>Nome Completo:</label>
+                        <input type="text" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Nome Espiritual:</label>
+                        <input type="text" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Foto/Ícone:</label>
+                        <input type="text" placeholder="👨 👩 🧔" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tipo:</label>
+                        <select required>
+                            <option>Médium de Consulta</option>
+                            <option>Médium em Desenvolvimento</option>
+                            <option>Ogan</option>
+                            <option>Atendente</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Telefone:</label>
+                        <input type="text" placeholder="(13) 99999-9999" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Contato de Emergência:</label>
+                        <input type="text" placeholder="Nome e telefone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Cadastrar Médium</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Verificar autenticação
+        const usuario = verificarAutenticacao(['admin']);
+        
+        if (usuario) {
+            document.getElementById('usuario-nome').textContent = usuario.nome;
+        }
+        
+        function mudarTab(tab) {
+            // Remover active de todas as tabs
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+            
+            // Ativar tab selecionada
+            document.querySelector(`.tab[onclick="mudarTab('${tab}')"]`).classList.add('active');
+            document.getElementById(`tab-${tab}`).classList.add('active');
+        }
+        
+        function abrirModalNovaGira() {
+            document.getElementById('modal-nova-gira').classList.add('active');
+        }
+        
+        function abrirModalNovoMedium() {
+            document.getElementById('modal-novo-medium').classList.add('active');
+        }
+        
+        function abrirModalNovoSocio() {
+            alert('Abrir modal de novo sócio');
+        }
+        
+        function fecharModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        
+        function salvarGira(event) {
+            event.preventDefault();
+            mostrarAlerta('Gira cadastrada com sucesso!', 'success');
+            fecharModal('modal-nova-gira');
+        }
+        
+        function salvarMedium(event) {
+            event.preventDefault();
+            mostrarAlerta('Médium cadastrado com sucesso!', 'success');
+            fecharModal('modal-novo-medium');
+        }
+        
+        // Fechar modal ao clicar fora
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

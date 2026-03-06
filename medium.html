@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Médium - Jurema & Tupinambá</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .perfil-medium {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+        }
+        
+        .perfil-foto {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 3px solid var(--gold);
+        }
+        
+        .perfil-info h2 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .perfil-info p {
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+        
+        .proxima-gira {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+        
+        .proxima-gira h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        
+        .proxima-gira-info {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="sistema-header">
+        <nav class="sistema-nav">
+            <div class="sistema-logo">JUREMA & TUPINAMBÁ</div>
+            <div class="sistema-usuario">
+                <div class="sistema-usuario-info">
+                    <div class="sistema-usuario-nome" id="usuario-nome">João de Oxóssi</div>
+                    <div class="sistema-usuario-perfil" id="usuario-perfil">Médium de Consulta</div>
+                </div>
+                <button class="sistema-logout" onclick="logout()">Sair</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="sistema-main">
+        <!-- Perfil do Médium -->
+        <div class="perfil-medium">
+            <div class="perfil-foto">👨</div>
+            <div class="perfil-info">
+                <h2>João de Oxóssi</h2>
+                <p><strong>Nome Espiritual:</strong> Caboclo Sete Flechas</p>
+                <p><strong>Contato:</strong> (13) 99999-9999</p>
+                <p><strong>Emergência:</strong> Maria - (13) 98888-8888</p>
+            </div>
+        </div>
+
+        <!-- Próxima Gira -->
+        <div class="proxima-gira">
+            <h3>📅 Próxima Gira</h3>
+            <div class="proxima-gira-info">
+                <strong>09/03/2026 - 20:00</strong> - Gira de Caboclos (Linha de Oxóssi)
+            </div>
+            <div class="proxima-gira-info">
+                Vagas: 8/10 • Médiuns confirmados: 8
+            </div>
+            <button class="btn btn-gold" onclick="confirmarPresenca()">✓ Confirmar Presença</button>
+        </div>
+
+        <!-- Próximas Giras -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>📅</i> Próximas Giras</h2>
+            </div>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Gira</th>
+                            <th>Horário</th>
+                            <th>Linha</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09/03/2026</td>
+                            <td>Gira de Caboclos</td>
+                            <td>20:00</td>
+                            <td>Oxóssi</td>
+                            <td><span class="status-badge status-confirmado">Confirmado</span></td>
+                            <td><button class="btn btn-success btn-small" disabled>✓ Confirmado</button></td>
+                        </tr>
+                        <tr>
+                            <td>11/03/2026</td>
+                            <td>Gira de Pretos Velhos</td>
+                            <td>20:00</td>
+                            <td>Pai Benedito</td>
+                            <td><span class="status-badge status-pendente">Pendente</span></td>
+                            <td><button class="btn btn-primary btn-small" onclick="confirmarPresenca()">Confirmar</button></td>
+                        </tr>
+                        <tr>
+                            <td>16/03/2026</td>
+                            <td>Gira de Iemanjá</td>
+                            <td>19:30</td>
+                            <td>Rainha do Mar</td>
+                            <td><span class="status-badge status-pendente">Pendente</span></td>
+                            <td><button class="btn btn-primary btn-small" onclick="confirmarPresenca()">Confirmar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Meus Atendimentos -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>📝</i> Meus Atendimentos</h2>
+            </div>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Consulente</th>
+                            <th>Tipo</th>
+                            <th>Horário</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09/03/2026</td>
+                            <td>Roberto Silva</td>
+                            <td>Sócio</td>
+                            <td>20:00</td>
+                            <td><span class="status-badge status-confirmado">Agendado</span></td>
+                        </tr>
+                        <tr>
+                            <td>09/03/2026</td>
+                            <td>Maria Oliveira</td>
+                            <td>Não Sócio</td>
+                            <td>20:30</td>
+                            <td><span class="status-badge status-confirmado">Agendado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Verificar autenticação
+        const usuario = verificarAutenticacao(['medium']);
+        
+        function confirmarPresenca() {
+            mostrarAlerta('Presença confirmada! Obrigado por integrar nossa corrente.', 'success');
+        }
+    </script>
+</body>
+</html>

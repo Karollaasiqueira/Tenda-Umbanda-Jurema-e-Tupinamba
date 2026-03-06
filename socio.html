@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sócio - Jurema & Tupinambá</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .status-socio {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .status-adimplente {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-inadimplente {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .upload-area {
+            border: 2px dashed var(--primary);
+            padding: 2rem;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 1rem 0;
+        }
+        
+        .upload-area:hover {
+            background: var(--light);
+        }
+    </style>
+</head>
+<body>
+    <header class="sistema-header">
+        <nav class="sistema-nav">
+            <div class="sistema-logo">JUREMA & TUPINAMBÁ</div>
+            <div class="sistema-usuario">
+                <div class="sistema-usuario-info">
+                    <div class="sistema-usuario-nome" id="usuario-nome">Roberto Silva</div>
+                    <div class="sistema-usuario-perfil" id="usuario-perfil">Sócio</div>
+                </div>
+                <button class="sistema-logout" onclick="logout()">Sair</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="sistema-main">
+        <!-- Status do Sócio -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>💰</i> Minha Mensalidade</h2>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <p><strong>Status:</strong> <span class="status-socio status-adimplente">Adimplente</span></p>
+                    <p><strong>Vencimento:</strong> 10/03/2026</p>
+                    <p><strong>Valor:</strong> R$ 50,00</p>
+                </div>
+                
+                <div>
+                    <button class="btn btn-primary" onclick="abrirModalPagamento()">Pagar Mensalidade</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agendar Consulta -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>📝</i> Agendar Consulta</h2>
+            </div>
+            
+            <form onsubmit="agendarConsulta(event)">
+                <div class="form-group">
+                    <label>Selecione a Gira:</label>
+                    <select required>
+                        <option value="">Escolha uma data</option>
+                        <option value="1">09/03/2026 - Gira de Caboclos - 20h</option>
+                        <option value="2">11/03/2026 - Gira de Pretos Velhos - 20h</option>
+                        <option value="3">16/03/2026 - Gira de Iemanjá - 19h30</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Escolha o Médium (apenas sócios podem escolher):</label>
+                    <select required>
+                        <option value="">Selecione um médium</option>
+                        <option value="1">João de Oxóssi (Caboclo Sete Flechas)</option>
+                        <option value="2">Maria de Iemanjá (Cabocla Jurema)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Agendar Consulta</button>
+            </form>
+        </div>
+
+        <!-- Meus Agendamentos -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>📋</i> Meus Agendamentos</h2>
+            </div>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Gira</th>
+                            <th>Médium</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09/03/2026</td>
+                            <td>Gira de Caboclos</td>
+                            <td>João de Oxóssi</td>
+                            <td><span class="status-badge status-confirmado">Confirmado</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal Pagamento -->
+        <div class="modal" id="modal-pagamento">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Pagar Mensalidade</h3>
+                    <span class="close-modal" onclick="fecharModal('modal-pagamento')">&times;</span>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <p><strong>Valor:</strong> R$ 50,00</p>
+                    <p><strong>Vencimento:</strong> 10/03/2026</p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Chave PIX:</label>
+                    <div style="background: var(--light); padding: 1rem; border-radius: 10px; text-align: center; font-family: monospace; font-size: 1.2rem;">
+                        (13) 99668-7038
+                    </div>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Dona Helena Peres</p>
+                </div>
+                
+                <div class="upload-area" onclick="document.getElementById('comprovante').click()">
+                    📤 Clique para enviar comprovante
+                    <input type="file" id="comprovante" style="display: none;" accept="image/*,.pdf">
+                </div>
+                
+                <button class="btn btn-primary" onclick="enviarComprovante()">Enviar Comprovante</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        function abrirModalPagamento() {
+            document.getElementById('modal-pagamento').classList.add('active');
+        }
+        
+        function fecharModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        
+        function agendarConsulta(event) {
+            event.preventDefault();
+            mostrarAlerta('Consulta agendada com sucesso!', 'success');
+        }
+        
+        function enviarComprovante() {
+            mostrarAlerta('Comprovante enviado! Aguarde confirmação.', 'success');
+            fecharModal('modal-pagamento');
+        }
+        
+        // Upload de comprovante
+        document.getElementById('comprovante')?.addEventListener('change', function(e) {
+            if(e.target.files.length > 0) {
+                alert('Comprovante selecionado: ' + e.target.files[0].name);
+            }
+        });
+    </script>
+</body>
+</html>

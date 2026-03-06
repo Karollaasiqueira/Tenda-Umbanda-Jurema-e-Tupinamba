@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendente - Jurema & Tupinambá</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .fila-atendimento {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .fila-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--light);
+        }
+        
+        .fila-item:last-child {
+            border-bottom: none;
+        }
+        
+        .fila-acoes {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .em-atendimento {
+            background: #cce5ff;
+            border-left: 5px solid var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header class="sistema-header">
+        <nav class="sistema-nav">
+            <div class="sistema-logo">JUREMA & TUPINAMBÁ</div>
+            <div class="sistema-usuario">
+                <div class="sistema-usuario-info">
+                    <div class="sistema-usuario-nome" id="usuario-nome">Recepção</div>
+                    <div class="sistema-usuario-perfil" id="usuario-perfil">Atendente</div>
+                </div>
+                <button class="sistema-logout" onclick="logout()">Sair</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="sistema-main">
+        <!-- Gira Atual -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>📅</i> Gira em Andamento</h2>
+                <span class="status-badge status-andamento">09/03/2026 - Gira de Caboclos - 20h</span>
+            </div>
+            
+            <div class="grid">
+                <div class="dashboard-card">
+                    <div class="numero">8</div>
+                    <div class="rotulo">Consultas Agendadas</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="numero">3</div>
+                    <div class="rotulo">Realizadas</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="numero">2</div>
+                    <div class="rotulo">Em Andamento</div>
+                </div>
+                <div class="dashboard-card">
+                    <div class="numero">3</div>
+                    <div class="rotulo">Aguardando</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fila de Atendimento -->
+        <div class="fila-atendimento">
+            <h3 style="color: var(--primary); margin-bottom: 1rem;">👥 Fila de Atendimento</h3>
+            
+            <div class="fila-item em-atendimento">
+                <div>
+                    <strong>João Silva</strong> - Médium: João de Oxóssi
+                </div>
+                <div class="fila-acoes">
+                    <button class="btn btn-warning btn-small">⏸️ Pausar</button>
+                    <button class="btn btn-success btn-small" onclick="finalizarAtendimento()">✓ Finalizar</button>
+                </div>
+            </div>
+            
+            <div class="fila-item">
+                <div>
+                    <strong>Maria Oliveira</strong> - Médium: Maria de Iemanjá
+                </div>
+                <div class="fila-acoes">
+                    <button class="btn btn-primary btn-small" onclick="chamarConsulta()">📢 Chamar</button>
+                </div>
+            </div>
+            
+            <div class="fila-item">
+                <div>
+                    <strong>Carlos Santos</strong> - Médium: João de Oxóssi
+                </div>
+                <div class="fila-acoes">
+                    <button class="btn btn-primary btn-small" onclick="chamarConsulta()">📢 Chamar</button>
+                </div>
+            </div>
+            
+            <div class="fila-item">
+                <div>
+                    <strong>Ana Paula</strong> - Médium: Maria de Iemanjá
+                </div>
+                <div class="fila-acoes">
+                    <button class="btn btn-primary btn-small" onclick="chamarConsulta()">📢 Chamar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Todas as Consultas do Dia -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i>📋</i> Consultas do Dia - 09/03/2026</h2>
+            </div>
+            
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Consulente</th>
+                            <th>Médium</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>20:00</td>
+                            <td>Roberto Silva</td>
+                            <td>João de Oxóssi</td>
+                            <td><span class="status-badge status-confirmado">Agendado</span></td>
+                            <td><button class="btn btn-primary btn-small" onclick="chamarConsulta()">Chamar</button></td>
+                        </tr>
+                        <tr>
+                            <td>20:30</td>
+                            <td>Maria Oliveira</td>
+                            <td>Maria de Iemanjá</td>
+                            <td><span class="status-badge status-andamento">Em Andamento</span></td>
+                            <td><button class="btn btn-success btn-small" onclick="finalizarAtendimento()">Finalizar</button></td>
+                        </tr>
+                        <tr>
+                            <td>21:00</td>
+                            <td>Carlos Santos</td>
+                            <td>João de Oxóssi</td>
+                            <td><span class="status-badge status-pendente">Aguardando</span></td>
+                            <td><button class="btn btn-primary btn-small" onclick="chamarConsulta()">Chamar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        function chamarConsulta() {
+            mostrarAlerta('Consulente chamado para atendimento!', 'success');
+        }
+        
+        function finalizarAtendimento() {
+            mostrarAlerta('Atendimento finalizado com sucesso!', 'success');
+        }
+    </script>
+</body>
+</html>
