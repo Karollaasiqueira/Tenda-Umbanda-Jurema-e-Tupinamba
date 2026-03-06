@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urenia & Tupinambá - Tenda Umbanda Santos/SP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f5f0fa;
+        }
+
+        /* Cabeçalho com logo */
+        header {
+            background: linear-gradient(135deg, #2a1b3c 0%, #4a1d6d 100%);
+            color: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-size: 1rem;
+            color: #c0a0e0;
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .login-btn {
+            background: #ffd700;
+            color: #2a1b3c;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #ffaa00;
+            transform: scale(1.05);
+        }
+
+        /* Main content */
+        main {
+            margin-top: 100px;
+            padding: 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hero section com história */
+        .hero {
+            background: linear-gradient(rgba(42, 27, 60, 0.9), rgba(74, 29, 109, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,100 100,0 100,100" fill="rgba(255,215,0,0.1)"/></svg>');
+            background-size: cover;
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            max-width: 200px;
+        }
+
+        /* Aba de Orações - Nova Seção */
+        .oracoes-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 2px solid #ffd700;
+        }
+
+        .oracoes-titulo {
+            color: #4a1d6d;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .oracoes-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .form-oracao {
+            background: #faf5ff;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .velas-opcoes {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .vela-card {
+            flex: 1;
+            background: white;
+            border: 2px solid #e0d0f0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .vela-card:hover {
+            border-color: #ffd700;
+            transform: translateY(-5px);
+        }
+
+        .vela-card.selected {
+            border-color: #ffd700;
+            background: #fff9e6;
+        }
+
+        .vela-icone {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .vela-tipo {
+            font-weight: bold;
+            color: #4a1d6d;
+            margin-bottom: 0.5rem;
+        }
+
+        .vela-preco {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .vela-duracao {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .tipo-pedido {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tipo-btn {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid #e0d0f0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .tipo-btn:hover {
+            border-color: #ffd700;
+        }
+
+        .tipo-btn.selected {
+            background: #4a1d6d;
+            color: white;
+            border-color: #4a1d6d;
+        }
+
+        .pedidos-oracoes {
+            background: linear-gradient(135deg, #2a1b3c, #4a1d6d);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .pedido-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .pedido-nome {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .pedido-motivo {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .velinha {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+
+        .velinha-1dia { background: #ffd700; }
+        .velinha-7dias { background: #ffaa00; }
+
+        /* Calendário */
+        .calendario-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .calendario-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .calendario-titulo {
+            color: #4a1d6d;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mes-ano {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .mes-ano button {
+            background: #f0e6ff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #4a1d6d;
+            transition: all 0.3s;
+        }
+
+        .mes-ano button:hover {
+            background: #4a1d6d;
+            color: white;
+        }
+
+        .calendario-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .calendario-dia-semana {
+            text-align: center;
+            font-weight: bold;
+            padding: 10px;
+            background: #f0e6ff;
+            color: #4a1d6d;
+            border-radius: 10px;
+        }
+
+        .calendario-dia {
+            border: 1px solid #e0d0f0;
+            padding: 10px;
+            min-height: 100px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            background: #faf5ff;
+        }
+
+        .calendario-dia:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(74, 29, 109, 0.2);
+            background: white;
+        }
+
+        .dia-numero {
+            font-weight: bold;
+            color: #4a1d6d;
+            margin-bottom: 5px;
+        }
+
+        .gira-evento {
+            background: linear-gradient(135deg, #4a1d6d, #764ba2);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            cursor: pointer;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        .btn-adicionar-gira {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Seção dos Guias */
+        .guias-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guia-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border-top: 5px solid #ffd700;
+        }
+
+        .guia-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .guia-card h3 {
+            color: #4a1d6d;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .guia-card h4 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .guia-historia {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Campanha de Reforma */
+        .campanha-section {
+            background: linear-gradient(135deg, #2a1b3c, #4a1d6d);
+            color: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .campanha-titulo {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .progresso-container {
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            height: 30px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progresso-bar {
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            height: 100%;
+            width: 5%;
+            border-radius: 30px;
+            transition: width 0.5s;
+        }
+
+        .campanha-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .campanha-stat {
+            text-align: center;
+        }
+
+        .campanha-valor {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        /* Formulários */
+        .funcionalidades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #4a1d6d;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4a1d6d, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #764ba2, #4a1d6d);
+            transform: scale(1.02);
+        }
+
+        .btn-doe {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #2a1b3c;
+        }
+
+        .btn-oracao {
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            color: #2a1b3c;
+            margin-top: 1rem;
+        }
+
+        /* Upload PIX */
+        .upload-area {
+            border: 2px dashed #4a1d6d;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 10px;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-area:hover {
+            background: #f0e6ff;
+            border-color: #ffd700;
+        }
+
+        /* Área do Médium */
+        .medium-area {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .medium-area.active {
+            display: block;
+        }
+
+        .medium-classificacao {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .medium-desenvolvimento { background: #ffd700; color: #2a1b3c; }
+        .medium-ogan { background: #87ceeb; color: #2a1b3c; }
+        .medium-consulta { background: #98fb98; color: #2a1b3c; }
+        .medium-visitante { background: #d3d3d3; color: #2a1b3c; }
+
+        .agendamentos-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .agendamentos-table th,
+        .agendamentos-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0d0f0;
+        }
+
+        .agendamentos-table th {
+            background: #f0e6ff;
+            color: #4a1d6d;
+        }
+
+        .confirmar-presenca {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Informações de contato */
+        .info-contato {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contato-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #555;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background: #2a1b3c;
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .desde-1967 {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        /* Modal Login */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .calendario-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            
+            .calendario-dia-semana {
+                display: none;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .oracoes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div>
+                    <div class="logo-text">URENIA & TUPIN</div>
+                    <div class="logo-sub">Desde 1967</div>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="#historia">História</a>
+                <a href="#calendario">Giras</a>
+                <a href="#oracoes">Orações</a>
+                <a href="#guias">Guias</a>
+                <a href="#campanha">Campanha</a>
+                <a href="#contato">Contato</a>
+            </div>
+            <button class="login-btn" onclick="abrirModalLogin()">Login Médium</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section com História -->
+        <section class="hero" id="historia">
+            <h1>Raízes Fortes, Frutos de Luz</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">A história, a força e o futuro da Tenda Espírita de Umbanda Urenia e Tupinambá</p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">1967</div>
+                    <div class="stat-label">Mais de meio século de portas abertas ininterruptamente</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50</div>
+                    <div class="stat-label">Anos sob a liderança da Mãe Maria Helena Peres</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">140</div>
+                    <div class="stat-label">Corações - Nossa lotação máxima em dias de sessão</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nova Seção de Orações -->
+        <section class="oracoes-section" id="oracoes">
+            <h2 class="oracoes-titulo">🙏 Pedidos de Oração e Velas Online</h2>
+            
+            <div class="oracoes-grid">
+                <!-- Formulário de Pedido -->
+                <div class="form-oracao">
+                    <h3 style="color: #4a1d6d; margin-bottom: 1.5rem;">Fazer um Pedido de Oração</h3>
+                    
+                    <div class="form-group">
+                        <label>Seu Nome Completo:</label>
+                        <input type="text" id="nome-pedinte" placeholder="Como você quer ser identificado" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tipo de Pedido:</label>
+                        <div class="tipo-pedido">
+                            <button type="button" class="tipo-btn selected" onclick="selecionarTipo('encarnado', this)">👤 Encarnado</button>
+                            <button type="button" class="tipo-btn" onclick="selecionarTipo('desencarnado', this)">👻 Desencarnado</button>
+                            <button type="button" class="tipo-btn" onclick="selecionarTipo('animal', this)">🐾 Animal</button>
+                        </div>
+                        <input type="hidden" id="tipo-pedido" value="encarnado">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Nome da Pessoa/Animal:</label>
+                        <input type="text" id="nome-pedido" placeholder="Nome de quem precisa de oração" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Motivo do Pedido:</label>
+                        <textarea id="motivo-pedido" rows="3" placeholder="Descreva o motivo da oração e cuidados necessários..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Acender Vela Online:</label>
+                        <div class="velas-opcoes">
+                            <div class="vela-card selected" onclick="selecionarVela(1, this)">
+                                <div class="vela-icone">🕯️</div>
+                                <div class="vela-tipo">Vela de 1 Dia</div>
+                                <div class="vela-preco">R$ 10,00</div>
+                                <div class="vela-duracao">Acende por 24 horas</div>
+                            </div>
+                            <div class="vela-card" onclick="selecionarVela(7, this)">
+                                <div class="vela-icone">🕯️🕯️</div>
+                                <div class="vela-tipo">Vela de 7 Dias</div>
+                                <div class="vela-preco">R$ 50,00</div>
+                                <div class="vela-duracao">Acende por 7 dias</div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="tipo-vela" value="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Forma de Pagamento:</label>
+                        <select id="pagamento-vela">
+                            <option value="pix">PIX (Chave: (13) 99668-7038 - Dona Helena)</option>
+                            <option value="cartao">Cartão de Crédito (via Vakinha)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-oracao" onclick="enviarPedidoOracao()">Enviar Pedido de Oração</button>
+                    
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        <i>⏳ Sua vela será acesa no Congá durante a próxima gira</i>
+                    </p>
+                </div>
+                
+                <!-- Pedidos Recentes -->
+                <div class="pedidos-oracoes">
+                    <h3 style="color: #ffd700; margin-bottom: 1.5rem;">🕯️ Velas Acesas</h3>
+                    
+                    <div id="lista-pedidos">
+                        <div class="pedido-item">
+                            <div>
+                                <span class="velinha velinha-7dias"></span>
+                                <span class="pedido-nome">Maria da Silva</span>
+                            </div>
+                            <div class="pedido-motivo">Pela cura de João (encarnado) - 7 dias</div>
+                        </div>
+                        
+                        <div class="pedido-item">
+                            <div>
+                                <span class="velinha velinha-1dia"></span>
+                                <span class="pedido-nome">Carlos Oliveira</span>
+                            </div>
+                            <div class="pedido-motivo">Pelo desencarnado Antônio - 1 dia</div>
+                        </div>
+                        
+                        <div class="pedido-item">
+                            <div>
+                                <span class="velinha velinha-1dia"></span>
+                                <span class="pedido-nome">Ana Beatriz</span>
+                            </div>
+                            <div class="pedido-motivo">Pela saúde do animal Thor - 1 dia</div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #ffd700;">
+                        <i>📿 Todas as velas são abençoadas na gira</i>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendário de Giras -->
+        <section class="calendario-section" id="calendario">
+            <div class="calendario-header">
+                <h2 class="calendario-titulo">📅 Calendário de Giras</h2>
+                <div class="mes-ano">
+                    <button onclick="mesAnterior()">←</button>
+                    <span id="mes-atual" style="font-size: 1.5rem; font-weight: bold; color: #4a1d6d;">Março 2026</span>
+                    <button onclick="proximoMes()">→</button>
+                </div>
+            </div>
+            
+            <!-- Botão para adicionar gira (visível apenas para médiuns logados) -->
+            <button class="btn-adicionar-gira" onclick="abrirModalAgendaGira()" style="display: none;" id="btn-add-gira">+ Agendar Nova Gira</button>
+            
+            <div class="calendario-grid" id="calendario-grid">
+                <!-- Dias da semana -->
+                <div class="calendario-dia-semana">Dom</div>
+                <div class="calendario-dia-semana">Seg</div>
+                <div class="calendario-dia-semana">Ter</div>
+                <div class="calendario-dia-semana">Qua</div>
+                <div class="calendario-dia-semana">Qui</div>
+                <div class="calendario-dia-semana">Sex</div>
+                <div class="calendario-dia-semana">Sáb</div>
+                <!-- Gerado via JS -->
+            </div>
+            <p style="margin-top: 1rem; color: #4a1d6d; font-style: italic;">"Estava na beira do rio, sem poder atravessar. Chamei pelo Caboclo, Caboclo Tupinambá."</p>
+        </section>
+
+        <!-- Seção dos Guias Espirituais -->
+        <section class="guias-section" id="guias">
+            <div class="guia-card">
+                <h3>Caboclo Tupinambá</h3>
+                <h4>O Pilar da Proteção e Força</h4>
+                <div class="guia-historia">
+                    <p><strong>Guerreiro de Oxóssi:</strong> Senhor da flecha, protetor absoluto que não perde uma demanda.</p>
+                    <p><strong>O Pai Carnal:</strong> Aquele que resgatou e criou a menina Jurema aos sete meses de vida.</p>
+                    <p><strong>Força Verdadeira:</strong> Na beira da mata, ele é o escudo contra a escuridão.</p>
+                </div>
+            </div>
+
+            <div class="guia-card">
+                <h3>Cabocla Jurema</h3>
+                <h4>A Rainha das Matas</h4>
+                <div class="guia-historia">
+                    <p><strong>Resgate:</strong> Abandonada aos pés de uma árvore de espinhos, foi salva por Tupinambá.</p>
+                    <p><strong>Liderança:</strong> Tornou-se cacique e primeira guerreira de sua tribo.</p>
+                    <p><strong>Sacrifício:</strong> Recebeu a flecha destinada a seu amor Huascar. No local, nasceu um girassol.</p>
+                </div>
+            </div>
+
+            <div class="guia-card">
+                <h3>Dr. Bezerra de Menezes</h3>
+                <h4>O Médico dos Pobres</h4>
+                <div class="guia-historia">
+                    <p><strong>A Vida Física (1831-1900):</strong> Médico, político, "O Kardec Brasileiro".</p>
+                    <p><strong>A Vida Espiritual:</strong> Comanda as legiões de cura, consolando aflitos.</p>
+                    <p><strong>A Doação Suprema:</strong> Doou seu anel de formatura para comprar remédios.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Campanha de Reforma -->
+        <section class="campanha-section" id="campanha">
+            <h2 class="campanha-titulo">🏗️ Um Espaço Físico Menor que o Chamado Espiritual</h2>
+            
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">
+                Atendemos até 140 pessoas por sessão em um espaço que chegou ao seu limite.
+            </p>
+
+            <div class="progresso-container">
+                <div class="progresso-bar" style="width: 5%;"></div>
+            </div>
+
+            <div class="campanha-stats">
+                <div class="campanha-stat">
+                    <div class="campanha-valor">R$ 60.000</div>
+                    <div>Meta Necessária</div>
+                </div>
+                <div class="campanha-stat">
+                    <div class="campanha-valor">R$ 2.960</div>
+                    <div>Arrecadado</div>
+                </div>
+                <div class="campanha-stat">
+                    <div class="campanha-valor">25 ❤️</div>
+                    <div>Apoiadores</div>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
+                <h3 style="color: #ffd700; margin-bottom: 1rem;">Como Ser um Fruto Desta Obra:</h3>
+                <div style="display: grid; gap: 1rem;">
+                    <p><strong>1. Doe via PIX:</strong> Chave: (13) 99668-7038 (Dona Helena)</p>
+                    <p><strong>2. Doe pelo Vakinha:</strong> Acesse Vakinha.com.br - ID: 3109459</p>
+                    <p><strong>3. Compartilhe:</strong> Envie esta campanha para amigos e familiares</p>
+                </div>
+                <button class="btn btn-doe" style="margin-top: 2rem;" onclick="window.open('https://www.vakinha.com.br/3109459', '_blank')">QUERO DOAR AGORA</button>
+            </div>
+        </section>
+
+        <!-- Funcionalidades -->
+        <div class="funcionalidades-grid">
+            <!-- Agendamento de Consulta -->
+            <div class="card">
+                <h3>📝 Agendar Consulta</h3>
+                <form id="form-agendamento">
+                    <div class="form-group">
+                        <label>Data da Gira:</label>
+                        <select id="data-gira" required>
+                            <option value="">Selecione uma data</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Médium de Consulta:</label>
+                        <select id="medium-consulta" required>
+                            <option value="">Selecione o médium</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Horário:</label>
+                        <select id="horario-consulta" required>
+                            <option value="">Selecione</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Agendar Consulta</button>
+                </form>
+            </div>
+
+            <!-- Área do Sócio -->
+            <div class="card">
+                <h3>💰 Área do Sócio</h3>
+                <form id="form-socio">
+                    <div class="form-group">
+                        <label>Nome Completo:</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefone:</label>
+                        <input type="tel" required>
+                    </div>
+                    <div class="upload-area" onclick="document.getElementById('pix-upload').click()">
+                        📤 Clique para enviar comprovante PIX (Mensalidade R$ 50)
+                        <input type="file" id="pix-upload" style="display: none;" accept="image/*,.pdf">
+                    </div>
+                    <button type="submit" class="btn">Cadastrar como Sócio</button>
+                </form>
+            </div>
+
+            <!-- Cadastro de Médiuns -->
+            <div class="card">
+                <h3>🧘 Cadastro de Médiuns</h3>
+                <form id="form-medium">
+                    <div class="form-group">
+                        <label>Nome Completo:</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Classificação:</label>
+                        <select id="classificacao-medium" required>
+                            <option value="">Selecione...</option>
+                            <option value="desenvolvimento">Médium em Desenvolvimento</option>
+                            <option value="ogan">Ogan</option>
+                            <option value="consulta">Médium de Consulta</option>
+                            <option value="visitante">Visitante</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" required>
+                    </div>
+                    <button type="submit" class="btn">Cadastrar Médium</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Área do Médium -->
+        <div class="medium-area" id="medium-area">
+            <h2>Área do Médium</h2>
+            <div class="medium-classificacao medium-desenvolvimento" id="classificacao-exibida">Médium em Desenvolvimento</div>
+            
+            <h3 style="margin-top: 2rem;">Próximas Giras</h3>
+            <table class="agendamentos-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Tipo de Gira</th>
+                        <th>Horário</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="giras-mediuns">
+                    <!-- Será preenchido via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Informações de Contato -->
+        <section class="info-contato" id="contato">
+            <h2 style="color: #4a1d6d; margin-bottom: 2rem;">📍 Nossas Portas Estão Abertas</h2>
+            <div class="contato-grid">
+                <div class="info-item">
+                    <span style="font-size: 2rem;">📍</span>
+                    <div>
+                        <strong>Endereço:</strong><br>
+                        Rua Joaquim Nabuco, 94 - Vila Matias<br>
+                        Santos/SP - CEP: 11015-460
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span style="font-size: 2rem;">🕯️</span>
+                    <div>
+                        <strong>Dirigente:</strong><br>
+                        Dona Helena Peres<br>
+                        <a href="https://wa.me/5513996687038" class="whatsapp-btn" target="_blank">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='white'><path d='M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.76 2.68 15.54 3.68 17.07L2.04 21.91L7.02 20.29C8.52 21.22 10.25 21.72 12.04 21.72C17.5 21.72 21.95 17.27 21.95 11.81C21.95 6.35 17.5 2 12.04 2ZM12.04 20.09C10.46 20.09 8.92 19.63 7.6 18.77L7.33 18.6L4.49 19.51L5.42 16.75L5.24 16.47C4.3 15.09 3.79 13.5 3.79 11.91C3.79 7.32 7.45 3.66 12.04 3.66C16.63 3.66 20.29 7.32 20.29 11.91C20.29 16.5 16.63 20.09 12.04 20.09ZM16.52 13.78C16.24 13.64 14.87 12.96 14.62 12.86C14.37 12.76 14.18 12.71 13.99 12.99C13.8 13.27 13.26 13.9 13.1 14.09C12.94 14.28 12.78 14.3 12.5 14.16C12.22 14.02 11.35 13.7 10.3 12.78C9.48 12.06 8.93 11.2 8.77 10.92C8.61 10.64 8.75 10.5 8.89 10.36C9.02 10.23 9.18 10.02 9.32 9.85C9.46 9.68 9.51 9.54 9.6 9.34C9.69 9.14 9.64 8.97 9.57 8.83C9.5 8.69 8.95 7.32 8.75 6.82C8.56 6.33 8.36 6.4 8.21 6.39C8.07 6.38 7.91 6.38 7.75 6.38C7.59 6.38 7.32 6.44 7.1 6.68C6.88 6.92 6.23 7.53 6.23 8.77C6.23 10.01 7.09 11.2 7.21 11.36C7.33 11.52 8.92 14.06 11.36 15.13C11.96 15.41 12.42 15.58 12.79 15.71C13.39 15.92 13.94 15.89 14.38 15.82C14.87 15.74 15.89 15.13 16.11 14.46C16.33 13.79 16.33 13.22 16.26 13.09C16.19 12.96 16.04 12.9 16.52 13.78Z'/></svg>" style="width: 20px; height: 20px; filter: brightness(0) invert(1);">
+                            WhatsApp da Casa
+                        </a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span style="font-size: 2rem;">📞</span>
+                    <div>
+                        <strong>Contato:</strong><br>
+                        (13) 99668-7038 - Dona Helena
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="desde-1967">⚡ URENIA & TUPIN ⚡</div>
+            <p style="margin-bottom: 1rem;">Tenda Espírita de Umbanda Urenia e Tupinambá - Santos/SP</p>
+            <p style="font-style: italic; color: #ffd700;">"Seca-se a planta e cai a sua flor, mas a palavra de nosso Deus permanece eternamente."</p>
+            <p style="margin-top: 2rem;">© 2026 - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Login -->
+    <div class="modal" id="modal-login">
+        <div class="modal-content">
+            <span class="close-modal" onclick="fecharModalLogin()">&times;</span>
+            <h2 style="margin-bottom: 1.5rem; color: #4a1d6d;">Login do Médium</h2>
+            <form id="form-login" onsubmit="fazerLogin(event)">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label>Senha:</label>
+                    <input type="password" id="login-senha" required>
+                </div>
+                <button type="submit" class="btn">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Dados simulados baseados na história real
+        let mediuns = [
+            { id: 1, nome: "Maria Helena Peres", email: "donahelena@urenia.org", senha: "1967", classificacao: "consulta" },
+            { id: 2, nome: "João de Oxóssi", email: "joao@email.com", senha: "123", classificacao: "consulta" },
+            { id: 3, nome: "Carlos Ogan", email: "carlos@email.com", senha: "123", classificacao: "ogan" },
+            { id: 4, nome: "Ana em Desenvolvimento", email: "ana@email.com", senha: "123", classificacao: "desenvolvimento" }
+        ];
+
+        // Giras agendadas (vários dias)
+        let giras = [
+            { data: '2026-03-05', tipo: 'Gira de Caboclos', horario: '20:00', linha: 'Oxóssi' },
+            { data: '2026-03-07', tipo: 'Gira de Pretos Velhos', horario: '20:00', linha: 'Pai Benedito' },
+            { data: '2026-03-12', tipo: 'Gira de Iemanjá', horario: '19:30', linha: 'Rainha do Mar' },
+            { data: '2026-03-15', tipo: 'Gira de Cura', horario: '20:00', linha: 'Dr. Bezerra' },
+            { data: '2026-03-20', tipo: 'Gira de Exu', horario: '21:00', linha: 'Exu Tiriri' },
+            { data: '2026-03-22', tipo: 'Gira de Erês', horario: '16:00', linha: 'Cosme e Damião' },
+            { data: '2026-03-25', tipo: 'Gira de Caboclos', horario: '20:00', linha: 'Tupinambá' },
+            { data: '2026-03-28', tipo: 'Gira de Baianos', horario: '20:00', linha: 'Zé Baiano' },
+            { data: '2026-03-30', tipo: 'Gira de Ciganos', horario: '20:00', linha: 'Cigana Esmeralda' }
+        ];
+
+        let medicoesConsulta = mediuns.filter(m => m.classificacao === "consulta");
+
+        // Variáveis para o calendário
+        let mesAtual = 2; // Março (0-11)
+        let anoAtual = 2026;
+
+        // Funções para o calendário
+        function gerarCalendario() {
+            const grid = document.getElementById('calendario-grid');
+            const mesAnoEl = document.getElementById('mes-atual');
+            
+            const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+            mesAnoEl.textContent = `${meses[mesAtual]} ${anoAtual}`;
+            
+            // Limpar grid mantendo os dias da semana
+            while(grid.children.length > 7) {
+                grid.removeChild(grid.lastChild);
+            }
+            
+            // Primeiro dia do mês
+            const primeiroDia = new Date(anoAtual, mesAtual, 1).getDay();
+            
+            // Último dia do mês
+            const ultimoDia = new Date(anoAtual, mesAtual + 1, 0).getDate();
+            
+            // Adicionar dias vazios antes do primeiro dia
+            for(let i = 0; i < primeiroDia; i++) {
+                const diaVazio = document.createElement('div');
+                diaVazio.className = 'calendario-dia';
+                diaVazio.style.background = '#f0f0f0';
+                diaVazio.style.minHeight = 'auto';
+                grid.appendChild(diaVazio);
+            }
+            
+            // Adicionar dias do mês
+            for(let dia = 1; dia <= ultimoDia; dia++) {
+                const diaElement = document.createElement('div');
+                diaElement.className = 'calendario-dia';
+                diaElement.innerHTML = `<div class="dia-numero">${dia}</div>`;
+                
+                // Verificar se há giras neste dia
+                const dataStr = `${anoAtual}-${String(mesAtual + 1).padStart(2, '0')}-${String(dia).padStart(2, '0')}`;
+                const girasDoDia = giras.filter(g => g.data === dataStr);
+                
+                girasDoDia.forEach(gira => {
+                    diaElement.innerHTML += `<div class="gira-evento" title="${gira.linha}">${gira.tipo} ${gira.horario}</div>`;
+                });
+                
+                grid.appendChild(diaElement);
+            }
+        }
+
+        function mesAnterior() {
+            if(mesAtual === 0) {
+                mesAtual = 11;
+                anoAtual--;
+            } else {
+                mesAtual--;
+            }
+            gerarCalendario();
+        }
+
+        function proximoMes() {
+            if(mesAtual === 11) {
+                mesAtual = 0;
+                anoAtual++;
+            } else {
+                mesAtual++;
+            }
+            gerarCalendario();
+        }
+
+        // Funções para a seção de orações
+        let tipoSelecionado = 'encarnado';
+        let velaSelecionada = 1;
+
+        function selecionarTipo(tipo, elemento) {
+            tipoSelecionado = tipo;
+            document.getElementById('tipo-pedido').value = tipo;
+            
+            // Atualizar visual dos botões
+            document.querySelectorAll('.tipo-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            elemento.classList.add('selected');
+        }
+
+        function selecionarVela(dias, elemento) {
+            velaSelecionada = dias;
+            document.getElementById('tipo-vela').value = dias;
+            
+            // Atualizar visual dos cards
+            document.querySelectorAll('.vela-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            elemento.classList.add('selected');
+        }
+
+        function enviarPedidoOracao() {
+            const nomePedinte = document.getElementById('nome-pedinte').value;
+            const nomePedido = document.getElementById('nome-pedido').value;
+            const motivo = document.getElementById('motivo-pedido').value;
+            const tipo = tipoSelecionado;
+            const vela = velaSelecionada;
+            
+            if(!nomePedinte || !nomePedido || !motivo) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+            
+            const tipoTexto = tipo === 'encarnado' ? '👤' : (tipo === 'desencarnado' ? '👻' : '🐾');
+            const velaTexto = vela === 1 ? '🕯️ 1 dia' : '🕯️🕯️ 7 dias';
+            
+            // Adicionar à lista de pedidos
+            const listaPedidos = document.getElementById('lista-pedidos');
+            const novoPedido = document.createElement('div');
+            novoPedido.className = 'pedido-item';
+            novoPedido.innerHTML = `
+                <div>
+                    <span class="velinha ${vela === 1 ? 'velinha-1dia' : 'velinha-7dias'}"></span>
+                    <span class="pedido-nome">${nomePedinte}</span> ${tipoTexto}
+                </div>
+                <div class="pedido-motivo">Por ${nomePedido} - ${motivo.substring(0, 30)}... - ${velaTexto}</div>
+            `;
+            
+            listaPedidos.insertBefore(novoPedido, listaPedidos.firstChild);
+            
+            // Limpar formulário
+            document.getElementById('nome-pedinte').value = '';
+            document.getElementById('nome-pedido').value = '';
+            document.getElementById('motivo-pedido').value = '';
+            
+            alert(`Pedido enviado! Sua vela de ${vela === 1 ? '1 dia' : '7 dias'} será acesa na próxima gira. Para pagamento, faça PIX para (13) 99668-7038 - Dona Helena`);
+            
+            // Abrir WhatsApp para confirmação
+            window.open(`https://wa.me/5513996687038?text=Olá, fiz um pedido de oração para ${nomePedido} (${tipoTexto}) com vela de ${vela === 1 ? '1 dia' : '7 dias'}.`, '_blank');
+        }
+
+        // Preencher médiuns de consulta
+        function preencherMediunsConsulta() {
+            const select = document.getElementById('medium-consulta');
+            medicoesConsulta.forEach(medium => {
+                const option = document.createElement('option');
+                option.value = medium.id;
+                option.textContent = medium.nome;
+                select.appendChild(option);
+            });
+        }
+
+        // Preencher datas das giras no select
+        function preencherDatasGira() {
+            const select = document.getElementById('data-gira');
+            giras.forEach(gira => {
+                const option = document.createElement('option');
+                option.value = gira.data;
+                const dataObj = new Date(gira.data + 'T12:00:00');
+                option.textContent = `${dataObj.toLocaleDateString('pt-BR')} - ${gira.tipo} ${gira.horario}`;
+                select.appendChild(option);
+            });
+        }
+
+        // Funções do Modal
+        function abrirModalLogin() {
+            document.getElementById('modal-login').classList.add('active');
+        }
+
+        function fecharModalLogin() {
+            document.getElementById('modal-login').classList.remove('active');
+        }
+
+        // Login
+        function fazerLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const senha = document.getElementById('login-senha').value;
+            
+            const medium = mediuns.find(m => m.email === email && m.senha === senha);
+            
+            if(medium) {
+                alert(`Bem-vindo(a) à nossa Tenda, ${medium.nome}!`);
+                document.getElementById('medium-area').classList.add('active');
+                document.getElementById('btn-add-gira').style.display = 'inline-block';
+                
+                const classificacaoEl = document.getElementById('classificacao-exibida');
+                classificacaoEl.textContent = getClassificacaoNome(medium.classificacao);
+                classificacaoEl.className = `medium-classificacao medium-${medium.classificacao}`;
+                
+                // Preencher tabela de giras do médium
+                preencherGirasMedium();
+                
+                fecharModalLogin();
+            } else {
+                alert('Email ou senha inválidos!');
+            }
+        }
+
+        function getClassificacaoNome(classificacao) {
+            const nomes = {
+                'desenvolvimento': 'Médium em Desenvolvimento',
+                'ogan': 'Ogan',
+                'consulta': 'Médium de Consulta',
+                'visitante': 'Visitante'
+            };
+            return nomes[classificacao];
+        }
+
+        function preencherGirasMedium() {
+            const tbody = document.getElementById('giras-mediuns');
+            tbody.innerHTML = '';
+            
+            giras.forEach(gira => {
+                const tr = document.createElement('tr');
+                const dataObj = new Date(gira.data + 'T12:00:00');
+                tr.innerHTML = `
+                    <td>${dataObj.toLocaleDateString('pt-BR')}</td>
+                    <td>${gira.tipo}</td>
+                    <td>${gira.horario}</td>
+                    <td>Pendente</td>
+                    <td><button class="confirmar-presenca" onclick="confirmarPresenca(this)">Confirmar Presença</button></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Confirmar presença
+        function confirmarPresenca(botao) {
+            botao.textContent = '✓ Confirmado';
+            botao.style.background = '#45a049';
+            botao.disabled = true;
+            
+            const linha = botao.closest('tr');
+            const colunaStatus = linha.cells[3];
+            colunaStatus.textContent = 'Confirmado';
+        }
+
+        // Event Listeners
+        document.getElementById('form-agendamento').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Consulta agendada com sucesso! Que os guias te acompanhem.');
+        });
+
+        document.getElementById('form-socio').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Cadastro de sócio realizado! Agradecemos seu apoio à nossa casa.');
+        });
+
+        document.getElementById('form-medium').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = e.target.querySelector('input[type="text"]').value;
+            const email = e.target.querySelector('input[type="email"]').value;
+            const classificacao = document.getElementById('classificacao-medium').value;
+            const senha = e.target.querySelector('input[type="password"]').value;
+            
+            const novoMedium = {
+                id: mediuns.length + 1,
+                nome: nome,
+                email: email,
+                senha: senha,
+                classificacao: classificacao
+            };
+            
+            mediuns.push(novoMedium);
+            
+            if(classificacao === 'consulta') {
+                medicoesConsulta.push(novoMedium);
+                // Atualizar select de consulta
+                const select = document.getElementById('medium-consulta');
+                const option = document.createElement('option');
+                option.value = novoMedium.id;
+                option.textContent = novoMedium.nome;
+                select.appendChild(option);
+            }
+            
+            alert('Médium cadastrado com sucesso! Bem-vindo à corrente.');
+            e.target.reset();
+        });
+
+        // Upload PIX
+        document.getElementById('pix-upload').addEventListener('change', function(e) {
+            if(e.target.files.length > 0) {
+                alert('Comprovante enviado! Muito obrigado por sua contribuição.');
+            }
+        });
+
+        // Inicialização
+        gerarCalendario();
+        preencherMediunsConsulta();
+        preencherDatasGira();
+
+        // Fechar modal ao clicar fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal-login');
+            if(event.target == modal) {
+                fecharModalLogin();
+            }
+        }
+    </script>
+</body>
+</html>
